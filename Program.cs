@@ -4,25 +4,35 @@ namespace P1
 {
     class Program
     {
+         public static double calcTotalCost(int numChild,int numAdult,double ticketPriceAdult,double ticketPriceChild,double total){
+            return numChild*ticketPriceChild+numAdult*ticketPriceAdult+total;
+        }
         static void Main(string[] args)
         {
             var ticketPriceChild = 15.0;
             var ticketPriceAdult = 20.0;
+            var chipsPrice = 5.0;
+            var cokePrice = 7.0;
             var numChild = 0;
             var numAdult = 0;
             var name = "";
-            var ticketCost = 0.0m;
-            var exit = "false";
+            var totalCost = 0.0m;
+            var exit = false;
             var choice = 'a';
+            var total=0.0;
+            
+            do{
 
-            Console.WriteLine("Welcome to Wonderland!!");
+            Console.WriteLine("Hello there!!");
 
              while(name == "")
             {
                 Console.WriteLine($"Please enter your name: ");
                 name = Console.ReadLine();
+                
             }
-       Console.WriteLine($"Your name is {name}");
+             Console.WriteLine($"Welcome to Wonderland {name} !!!!");
+      
 
            Console.WriteLine($"Enter number of childs ");
                 var ans = Console.ReadLine();
@@ -49,29 +59,36 @@ namespace P1
             {
                 case "chips" : Console.WriteLine($"Enter the number of packs you want?");
                                var x = Console.ReadLine();   
-                               var chipsCount = Convert.ToInt16(x);
+                                var chipsCount = Convert.ToInt16(x);
+                                total=chipsCount*chipsPrice;
                                break;
 
                 case "coke"  : Console.WriteLine($"Enter the number of cokes you want?");
                                var y = Console.ReadLine();   
-                               var cokesCount = Convert.ToInt16(y);
+                                var cokesCount = Convert.ToInt16(y);
+                                total=cokesCount*cokePrice;
+                               
                                break;
                 
                 default      : break;              
                 
+                
             }
+           
+           
             
         }
-
-        else
-        {
-
-        }
-
-           
-        
-
-         
-        }
+        var totalPrice=Program.calcTotalCost(numChild,numAdult,ticketPriceAdult,ticketPriceChild,total);
+        totalCost = Convert.ToDecimal(totalPrice);
+            Console.WriteLine($"Your total amount is {totalCost}. \n Have a good day {name}!!!!");
+            Console.WriteLine($"Press y to exit or press any key to continue");
+            var z = Console.ReadLine();
+            if(z == "y" || z == "Y")
+            {
+                exit = true;
+            }
+            }
+            while(exit == false);
+    }
     }
 }
