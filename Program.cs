@@ -32,7 +32,7 @@ namespace P1
                 name = Console.ReadLine();
                 
             }
-             Console.WriteLine($"Welcome to Wonderland {name} !!!!");
+             Console.WriteLine($"Welcome to DisneyLand {name} !!!!");
       
 
            Console.WriteLine($"Enter number of childs ");
