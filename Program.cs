@@ -13,6 +13,7 @@ namespace P1
             var ticketPriceAdult = 20.0;
             var chipsPrice = 5.0;
             var cokePrice = 7.0;
+            var cokechipspackPrice = 12.0;
             var numChild = 0;
             var numAdult = 0;
             var name = "";
@@ -51,7 +52,7 @@ namespace P1
         {
             Console.WriteLine($"Select your choice ");
 
-            Console.WriteLine($"Chips  Coke");
+            Console.WriteLine($"Chips - 5$ \n Coke - 7$ \n Both - 11$");
             var snacks = Console.ReadLine();
 
             switch(snacks.ToLower())
@@ -60,15 +61,21 @@ namespace P1
                 case "chips" : Console.WriteLine($"Enter the number of packs you want?");
                                var x = Console.ReadLine();   
                                 var chipsCount = Convert.ToInt16(x);
-                                total=chipsCount*chipsPrice;
+                                total = chipsCount * chipsPrice;
                                break;
 
                 case "coke"  : Console.WriteLine($"Enter the number of cokes you want?");
                                var y = Console.ReadLine();   
                                 var cokesCount = Convert.ToInt16(y);
-                                total=cokesCount*cokePrice;
+                                total = cokesCount * cokePrice;
                                
                                break;
+                case "both"  :  Console.WriteLine($"Enter the number of packs you want?");
+                                var g = Console.ReadLine();
+                                var count = Convert.ToInt16(g);
+                                total = count * cokechipspackPrice;
+                                break;      
+        
                 
                 default      : break;              
                 
@@ -80,7 +87,7 @@ namespace P1
         }
         var totalPrice=Program.calcTotalCost(numChild,numAdult,ticketPriceAdult,ticketPriceChild,total);
         totalCost = Convert.ToDecimal(totalPrice);
-            Console.WriteLine($"Your total amount is {totalCost}. \n Have a good day {name}!!!!");
+            Console.WriteLine($"Your total amount is {totalCost}$. \n Have a good day {name}!!!!");
             Console.WriteLine($"Press y to exit or press any key to continue");
             var z = Console.ReadLine();
             if(z == "y" || z == "Y")
